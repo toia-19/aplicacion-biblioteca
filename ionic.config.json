@@ -1,0 +1,8 @@
+{
+  "name": "Aplicaci\u00f3n Ejemplo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "71b24990"
+}
