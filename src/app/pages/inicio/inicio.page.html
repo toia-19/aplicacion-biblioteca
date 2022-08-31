@@ -1,18 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      <img src="../../../assets/Imágenes/icon.png" alt="Ícono" width="40px">
-      Biblioteca
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-app>
-  <ion-header translucent>
+  <ion-header>
     <ion-toolbar>
-      <ion-title>Card</ion-title>
-    </ion-toolbar> </ion-header
-  >,
+      <ion-title>
+        <img src="../../../assets/Imágenes/icon.png" alt="Ícono" width="40px">
+        iBiblioteca
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>,
   <ion-content fullscreen>
     <!-- iBiblioteca -->
     <ion-card class="tarjeta">
@@ -22,8 +16,8 @@
         una biblioteca de un centro educativo.<br>
         Para acceder a la biblioteca pulsa en el siguiente botón:
       </ion-card-content>
-      <ion-button color="danger" expand="full">
-        <ion-icon href="ibiblioteca" name="layers"></ion-icon>
+      <ion-button routerLink="/ibiblioteca" color="danger" expand="full">
+        <ion-icon name="layers"></ion-icon>
         Acceso a iBiblioteca
       </ion-button>
     </ion-card>
@@ -34,8 +28,8 @@
       <ion-card-content>
         Aplicación desarrollada por Javier Gallego.
       </ion-card-content>
-      <ion-button color="danger" expand="full">
-        <ion-icon href="autor" name="school"></ion-icon>
+      <ion-button routerLink="/autor" color="danger" expand="full">
+        <ion-icon name="school"></ion-icon>
         Consultar información
       </ion-button>
     </ion-card>

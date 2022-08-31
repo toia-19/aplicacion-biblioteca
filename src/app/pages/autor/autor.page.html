@@ -1,40 +1,49 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>autor</ion-title>
+    <ion-title>
+      <img src="../../../assets/Imágenes/icon.png" alt="Ícono" width="40px">
+      iBiblioteca
+    </ion-title>
   </ion-toolbar>
-</ion-header>
-
+</ion-header>,
 <ion-content fullscreen>
   <ion-card>
     <ion-card-title>Autor</ion-card-title>
     <ion-card-content>
-      iBiblioteca es una aplicación desarrollada con Ionic que permite gestionar
-      una biblioteca de un centro educativo.<br>
-      Para acceder a la biblioteca pulsa en el siguiente botón:
+      <ion-avatar slot="start">
+        <img src="/assets/Imágenes/bibliotecario.jpg"/>
+      </ion-avatar>
+      Aplicación desarrollada por Javier Gallego. A continuación puede consultar más 
+      información sobre el autor.
     </ion-card-content>
     <ion-item>
-      <ion-label>
-        <ion-icon href="#" name="book-outline"></ion-icon>
-        Currículum Vitae
+      <ion-label routerLink="/curriculum">
+        <ion-icon name="book-outline"></ion-icon>
+        Curriculum Vitae
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label>
-        <ion-icon href="#" name="mail-outline"></ion-icon>
-        Correo: gmail@gmail.com
+        <ion-icon name="mail-outline"></ion-icon>
+        Correo: <a href="https://mail.google.com/">javiergallego80@gmail.com</a>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label>
-        <ion-icon href="#" name="logo-twitter"></ion-icon>
-        Twitter: @twitter
+        <ion-icon name="logo-twitter"></ion-icon>
+        Twitter: <a href="https://twitter.com/">@javier_gallego</a>
       </ion-label>
     </ion-item>
     <ion-item>
       <ion-label>
-        <ion-icon href="#" name="call"></ion-icon>
+        <ion-icon name="call"></ion-icon>
         Teléfono: 900 900 900
       </ion-label>
     </ion-item>
   </ion-card>
+
+  <ion-button routerLink="/inicio" color="light" size="small">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    Volver
+  </ion-button>
 </ion-content>

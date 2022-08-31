@@ -1,9 +1,58 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>ibiblioteca</ion-title>
+    <ion-title>
+      <img src="../../../assets/Imágenes/icon.png" alt="Ícono" width="40px">
+      iBiblioteca
+    </ion-title>
   </ion-toolbar>
-</ion-header>
-
+</ion-header>,
 <ion-content>
+  <ion-title>Biblioteca</ion-title>
+  <ion-list class="lista">
+    <ion-item>
+      <img width="100px" src="/assets/Imágenes/elcondedemontecristo.jpg"/>
+      <ion-label>
+        <h2>El Conde de Montecristo</h2>
+        <p>
+          Autor: Alexandre Dumas<br>
+          Año: 1844
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <img width="100px" src="/assets/Imágenes/mujercitas.jpg"/>
+      <ion-label>
+        <h2>Mujercitas</h2>
+        <p>
+          Autor: Louisa May Alcott<br>
+          Año: 1868
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <img width="100px" src="/assets/Imágenes/elcaballerodelaarmaduraoxidada.jpg"/>
+      <ion-label>
+        <h2>El Caballero de la Armadura Oxidada</h2>
+        <p>
+          Autor: Robert Fisher<br>
+          Año: 1989
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <img width="100px" src="/assets/Imágenes/rafaela.png"/>
+      <ion-label>
+        <h2>Rafaela</h2>
+        <p>
+          Autor: Mariana Furiasse<br>
+          Año: 2002
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
+  <ion-button routerLink="/inicio" color="light" size="small">
+    <ion-icon name="arrow-back-outline"></ion-icon>
+    Volver
+  </ion-button>
 </ion-content>

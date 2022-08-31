@@ -18,7 +18,11 @@ const routes: Routes = [
   {
     path: 'ibiblioteca',
     loadChildren: () => import('./pages/ibiblioteca/ibiblioteca.module').then( m => m.IbibliotecaPageModule)
+  },  {
+    path: 'curriculum',
+    loadChildren: () => import('./pages/curriculum/curriculum.module').then( m => m.CurriculumPageModule)
   }
+
 ];
 
 @NgModule({
