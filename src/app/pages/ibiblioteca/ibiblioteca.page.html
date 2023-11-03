@@ -7,10 +7,11 @@
   </ion-toolbar>
 </ion-header>,
 <ion-content>
-  <ion-title>Biblioteca</ion-title>
-  <ion-list class="lista">
+  <ion-title class="titulo">Biblioteca</ion-title>
+  <!-- LIBROS SUBIDOS DE FORMA LOCAL -->
+  <!-- <ion-list class="lista">
     <ion-item>
-      <img width="100px" src="/assets/Imágenes/elcondedemontecristo.jpg"/>
+      <img width="100px" src="/assets/Imágenes/elcondedemontecristo.jpg" />
       <ion-label>
         <h2>El Conde de Montecristo</h2>
         <p>
@@ -20,7 +21,7 @@
       </ion-label>
     </ion-item>
     <ion-item>
-      <img width="100px" src="/assets/Imágenes/mujercitas.jpg"/>
+      <img width="100px" src="//assets/Imágenes/mujercitas.jpg" />
       <ion-label>
         <h2>Mujercitas</h2>
         <p>
@@ -30,7 +31,7 @@
       </ion-label>
     </ion-item>
     <ion-item>
-      <img width="100px" src="/assets/Imágenes/elcaballerodelaarmaduraoxidada.jpg"/>
+      <img width="100px" src="/assets/Imágenes/elcaballerodelaarmaduraoxidada.jpg" />
       <ion-label>
         <h2>El Caballero de la Armadura Oxidada</h2>
         <p>
@@ -40,7 +41,7 @@
       </ion-label>
     </ion-item>
     <ion-item>
-      <img width="100px" src="/assets/Imágenes/rafaela.png"/>
+      <img width="100px" src="/assets/Imágenes/rafaela.png" />
       <ion-label>
         <h2>Rafaela</h2>
         <p>
@@ -49,10 +50,118 @@
         </p>
       </ion-label>
     </ion-item>
+  </ion-list> -->
+
+  <!-- LIBROS SUBIDOS HACIENDO USO DEL CRUD -->
+  <ion-list class="lista">
+    <ion-item>
+      <ion-list *ngFor="let col of coleccionLibros">
+        <ion-item>
+          <ion-label>
+            <img width="100px" src="{{col.imagen}}" alt="">
+            <h2>{{col.nombre}}</h2>
+            <p>Autor: {{col.autor}}</p>
+            <p>Fecha: {{col.fecha_lanzamiento}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-button class="botones" id="modal-editar" expand="block" (click)="mostrarEditar(col)">Editar</ion-button>
+        <ion-button class="botones" id="modal-eliminar" expand="block" (click)="mostrarBorrar(col)">Eliminar</ion-button>
+      </ion-list>
+    </ion-item>
   </ion-list>
+
+  <ion-button id="modal-agregar" expand="block" (click)="mostrarAgregar()">Agregar</ion-button>
 
   <ion-button routerLink="/inicio" color="light" size="small">
     <ion-icon name="arrow-back-outline"></ion-icon>
     Volver
   </ion-button>
 </ion-content>
+
+<!-- MODALES -->
+<!-- AGREGAR -->
+<ion-modal trigger="modal-agregar">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-title class="titulo">Agregar</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="agregarLibro()" [strong]="true">Confirmar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" [formGroup]="libro">
+      <ion-item>
+        <ion-input label="Ingrese una imagen:" formControlName="imagen" labelPlacement="stacked" type="text" placeholder="Imagen"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese el nombre:" formControlName="nombre" labelPlacement="stacked" type="text" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese el autor:" formControlName="autor" labelPlacement="stacked" type="text" placeholder="Autor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese año de lanzamiento:" formControlName="fecha_lanzamiento" labelPlacement="stacked" type="number"placeholder="Año"></ion-input>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!-- EDITAR -->
+<ion-modal trigger="modal-editar">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-title class="titulo">Editar</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="editarLibro()" [strong]="true">Editar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" [formGroup]="libro">
+      <ion-item>
+        <ion-input label="Ingrese una imagen:" formControlName="imagen" labelPlacement="stacked" type="text" placeholder="{{col.imagen}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese el nombre:" formControlName="nombre" labelPlacement="stacked" type="text" placeholder="{{col.nombre}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese el autor:" formControlName="autor" labelPlacement="stacked" type="text" placeholder="{{col.autor}}"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Ingrese año de lanzamiento:" formControlName="fecha_lanzamiento" labelPlacement="stacked" type="number"placeholder="{{col.fecha_lanzamiento}}"></ion-input>
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+<!-- ELIMINAR -->
+<ion-modal trigger="modal-eliminar">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title class="titulo">¿Está seguro de eliminar este libro?</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="borrarLibro()" [strong]="true">Eliminar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-item>
+        {{productoSeleccionado.nombre}}
+      </ion-item>
+      <ion-item>
+        <img width="100px" src="{{productoSeleccionado.imagen}}" alt="">
+      </ion-item>
+    </ion-content>
+  </ng-template>
+</ion-modal>
